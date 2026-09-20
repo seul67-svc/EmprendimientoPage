@@ -1,11 +1,11 @@
-const CACHE_NAME = "doble-aguila-v2";
+const CACHE_NAME = "doble-aguila-v3";
 const ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./logo-mini.png",
   "./icon-192.png",
-  "./icon-512.png"
+  "./icon-512.png",
+  "./alma-toran.ttf"
 ];
 
 // Instala el service worker y guarda los archivos base en caché

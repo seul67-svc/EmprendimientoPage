@@ -15,6 +15,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=Fondamento&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:'Alma Toran';
+    src:url('alma-toran.ttf') format('truetype');
+    font-display:swap;
+  }
   :root{
     --bg: #1c1c1e;
     --bg-soft: #242427;
@@ -31,14 +36,13 @@
     margin:0;
     background:var(--bg);
     color:var(--ink);
-    font-family:'Inter', system-ui, sans-serif;
+    font-family:'Alma Toran', 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing:antialiased;
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
     touch-action:manipulation;
   }
   h1,h2,h3,.display{
-    font-family:'Oswald', sans-serif;
     font-weight:600;
     letter-spacing:0.01em;
     margin:0;
@@ -61,7 +65,7 @@
   }
   .brand{display:flex; align-items:center; gap:12px;}
   .brand img{height:34px; width:auto;}
-  .brand span{font-family:'Fondamento', cursive; font-size:1.7rem; letter-spacing:0.01em; line-height:1;}
+  .brand span{font-family:'Alma Toran', 'Fondamento', cursive; font-size:1.8rem; letter-spacing:0.02em; line-height:1;}
   nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0; font-size:0.92rem; color:var(--muted);}
   nav a{text-decoration:none;}
   nav a:hover{color:var(--ink);}
@@ -74,7 +78,7 @@
     padding:64px 0 56px;
     border-bottom:1px solid var(--line);
   }
-  .hero h1{font-family:'Fondamento', cursive; font-weight:400; font-size:clamp(2.3rem, 6vw, 3.6rem); line-height:1.15;}
+  .hero h1{font-family:'Alma Toran', 'Fondamento', cursive; font-weight:400; font-size:clamp(2.3rem, 6vw, 3.6rem); line-height:1.2; letter-spacing:0.01em;}
   .hero p{color:var(--muted); font-size:1.05rem; max-width:38ch; margin-top:18px; line-height:1.5;}
   .hero .tag{
     display:inline-block; font-size:0.78rem; color:var(--accent);
@@ -101,7 +105,7 @@
 
   section{padding:56px 0;}
   .section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:28px; border-bottom:1px solid var(--line); padding-bottom:16px;}
-  .section-head h2{font-size:1.5rem;}
+  .section-head h2{font-family:'Alma Toran', 'Oswald', sans-serif; font-size:1.7rem; letter-spacing:0.02em;}
   .section-head p{color:var(--muted); font-size:0.9rem; margin:0;}
 
   .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
@@ -115,8 +119,8 @@
     aspect-ratio:4/3;
   }
   .card .shoe svg{width:78%; height:auto;}
-  .card h3{font-size:1.05rem;}
-  .card .price{color:var(--accent); font-family:'Oswald'; font-size:1.15rem;}
+  .card h3{font-family:'Alma Toran', 'Oswald', sans-serif; font-size:1.2rem; letter-spacing:0.02em;}
+  .card .price{color:var(--accent); font-family:'Alma Toran', 'Oswald', sans-serif; font-size:1.35rem; letter-spacing:0.02em;}
   .card .meta{color:var(--muted); font-size:0.85rem;}
   .card .btn{width:100%; justify-content:center; margin-top:4px;}
 
@@ -152,7 +156,7 @@
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="logo-mini.png" alt="Doble Águila" />
+      <img src="icon-512.png" alt="Doble Águila" />
       <span>Doble Águila</span>
     </div>
     <nav>
@@ -177,7 +181,7 @@
       </div>
     </div>
     <div class="hero-art">
-      <img src="logo-mini.png" alt="Logo Doble Águila" />
+      <img src="icon-512.png" alt="Logo Doble Águila" />
     </div>
   </section>
 
