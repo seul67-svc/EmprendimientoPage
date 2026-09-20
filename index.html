@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-title" content="Doble Águila" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=Fondamento&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg: #1c1c1e;
@@ -22,8 +22,8 @@
     --line: #38383b;
     --ink: #f5f3ef;
     --muted: #a3a19c;
-    --accent: #c17a3d;
-    --accent-soft: #3a2c20;
+    --accent: #4a9d6f;
+    --accent-soft: #1f3d2c;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent; touch-action:manipulation;}
   html{touch-action:manipulation; min-height:100%;}
@@ -61,7 +61,7 @@
   }
   .brand{display:flex; align-items:center; gap:12px;}
   .brand img{height:34px; width:auto;}
-  .brand span{font-family:'Oswald'; font-size:1.05rem; letter-spacing:0.04em;}
+  .brand span{font-family:'Fondamento', cursive; font-size:1.7rem; letter-spacing:0.01em; line-height:1;}
   nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0; font-size:0.92rem; color:var(--muted);}
   nav a{text-decoration:none;}
   nav a:hover{color:var(--ink);}
@@ -87,7 +87,7 @@
     padding:13px 22px; border-radius:8px; font-size:0.95rem; font-weight:500;
     text-decoration:none; border:1px solid transparent; cursor:pointer;
   }
-  .btn-primary{background:var(--accent); color:#1c1509;}
+  .btn-primary{background:var(--accent); color:#0f2118;}
   .btn-ghost{border-color:var(--line); color:var(--ink);}
 
   .hero-art{
@@ -153,7 +153,7 @@
   <div class="nav">
     <div class="brand">
       <img src="logo-mini.png" alt="Doble Águila" />
-      <span>DOBLE ÁGUILA</span>
+      <span>Doble Águila</span>
     </div>
     <nav>
       <ul>
@@ -239,8 +239,8 @@
   const shoeSvg = `
     <svg viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6 52c0-6 4-9 10-11l20-7c4-9 12-15 22-15 5 0 8 3 9 7l3 10 20 4c8 2 24 6 24 15 0 5-4 7-9 7H14c-5 0-8-4-8-10z"
-        stroke="#c17a3d" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M36 34c4 4 10 6 16 6h30" stroke="#c17a3d" stroke-width="2" stroke-linecap="round"/>
+        stroke="#4a9d6f" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M36 34c4 4 10 6 16 6h30" stroke="#4a9d6f" stroke-width="2" stroke-linecap="round"/>
     </svg>
   `;
 
