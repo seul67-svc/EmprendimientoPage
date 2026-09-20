@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Doble Águila</title>
+<meta name="theme-color" content="#1c1c1e" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1c1c1e;
+    --bg-soft: #242427;
+    --card: #2a2a2d;
+    --line: #38383b;
+    --ink: #f5f3ef;
+    --muted: #a3a19c;
+    --accent: #c17a3d;
+    --accent-soft: #3a2c20;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(28,28,30,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; max-width:1080px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height:34px; width:auto;}
+  .brand span{font-family:'Oswald'; font-size:1.05rem; letter-spacing:0.04em;}
+  nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0; font-size:0.92rem; color:var(--muted);}
+  nav a{text-decoration:none;}
+  nav a:hover{color:var(--ink);}
+
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{font-size:clamp(2.1rem, 5vw, 3.2rem); line-height:1.08;}
+  .hero p{color:var(--muted); font-size:1.05rem; max-width:38ch; margin-top:18px; line-height:1.5;}
+  .hero .tag{
+    display:inline-block; font-size:0.78rem; color:var(--accent);
+    border:1px solid var(--accent); border-radius:999px; padding:5px 14px;
+    margin-bottom:18px;
+  }
+  .cta-row{display:flex; gap:14px; margin-top:30px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px; border-radius:8px; font-size:0.95rem; font-weight:500;
+    text-decoration:none; border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--accent); color:#1c1509;}
+  .btn-ghost{border-color:var(--line); color:var(--ink);}
+
+  .hero-art{
+    background:radial-gradient(circle at 50% 40%, var(--accent-soft), transparent 70%);
+    border:1px solid var(--line);
+    border-radius:20px;
+    display:flex; align-items:center; justify-content:center;
+    padding:40px;
+  }
+  .hero-art img{width:100%; max-width:280px; opacity:0.95;}
+
+  section{padding:56px 0;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:28px; border-bottom:1px solid var(--line); padding-bottom:16px;}
+  .section-head h2{font-size:1.5rem;}
+  .section-head p{color:var(--muted); font-size:0.9rem; margin:0;}
+
+  .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:20px; display:flex; flex-direction:column; gap:14px;
+  }
+  .card .shoe{
+    background:var(--bg-soft); border-radius:10px; padding:22px;
+    display:flex; align-items:center; justify-content:center;
+    aspect-ratio:4/3;
+  }
+  .card .shoe svg{width:78%; height:auto;}
+  .card h3{font-size:1.05rem;}
+  .card .price{color:var(--accent); font-family:'Oswald'; font-size:1.15rem;}
+  .card .meta{color:var(--muted); font-size:0.85rem;}
+  .card .btn{width:100%; justify-content:center; margin-top:4px;}
+
+  .strip{
+    display:flex; gap:28px; flex-wrap:wrap;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:26px 0; color:var(--muted); font-size:0.88rem;
+  }
+  .strip div{display:flex; align-items:center; gap:10px;}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
+
+  .note{
+    background:var(--bg-soft); border:1px dashed var(--line); border-radius:12px;
+    padding:18px 20px; color:var(--muted); font-size:0.88rem; line-height:1.6;
+  }
+  .note strong{color:var(--ink);}
+
+  footer{
+    border-top:1px solid var(--line); padding:32px 0 48px;
+    color:var(--muted); font-size:0.85rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr; padding:40px 0;}
+    .hero-art{order:-1;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    nav ul{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="logo.png" alt="Doble Águila" />
+      <span>DOBLE ÁGUILA</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div>
+      <span class="tag">Vista previa</span>
+      <h1>Tenis con carácter,<br/>hechos para durar el paso.</h1>
+      <p>Catálogo curado, precios claros y pedidos directos por WhatsApp. Esta es una primera vista de cómo se puede ver la tienda — el contenido real (fotos, nombre, precios) va después.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+        <a class="btn btn-ghost" href="#contacto">Contactar</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="logo.png" alt="Logo Doble Águila" />
+    </div>
+  </section>
+
+  <div class="strip">
+    <div><span class="dot"></span> Pedidos por WhatsApp</div>
+    <div><span class="dot"></span> Pares seleccionados</div>
+    <div><span class="dot"></span> Entrega a coordinar</div>
+  </div>
+
+  <section id="catalogo">
+    <div class="section-head">
+      <h2>Catálogo</h2>
+      <p>4 modelos de ejemplo</p>
+    </div>
+    <div class="grid" id="product-grid"></div>
+  </section>
+
+  <section>
+    <div class="note">
+      <strong>Nota:</strong> los productos, fotos y precios de arriba son de ejemplo, para mostrar cómo luciría la tienda. Cuando tengan nombre de marca y fotos reales de los tenis, se reemplaza todo esto — la estructura (index.html, manifest.json, sw.js) ya queda lista para GitHub Pages.
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="section-head">
+      <h2>Contacto</h2>
+      <p>Directo por WhatsApp</p>
+    </div>
+    <p style="color:var(--muted); max-width:50ch; line-height:1.6;">
+      Cada botón "Consultar" abre un mensaje de WhatsApp con el modelo ya escrito, para que solo tengan que confirmar el pedido. Falta poner el número real de contacto en el código.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+    <span>Doble Águila — vista previa</span>
+    <span>Hecho para GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+  // ---- Datos de ejemplo: reemplazar con los tenis reales ----
+  const WHATSAPP_NUMBER = "5210000000000"; // <-- poner el número real aquí (con código de país, sin +)
+
+  const products = [
+    { name: "Modelo Runner", price: "$1,200", meta: "Talla 24–29" },
+    { name: "Modelo Street", price: "$980", meta: "Talla 23–28" },
+    { name: "Modelo Classic", price: "$1,050", meta: "Talla 24–29" },
+    { name: "Modelo Trail", price: "$1,350", meta: "Talla 25–30" },
+  ];
+
+  const shoeSvg = `
+    <svg viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 52c0-6 4-9 10-11l20-7c4-9 12-15 22-15 5 0 8 3 9 7l3 10 20 4c8 2 24 6 24 15 0 5-4 7-9 7H14c-5 0-8-4-8-10z"
+        stroke="#c17a3d" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M36 34c4 4 10 6 16 6h30" stroke="#c17a3d" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  `;
+
+  const grid = document.getElementById("product-grid");
+  products.forEach((p) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const msg = encodeURIComponent(`Hola, me interesa el ${p.name} (${p.price}). ¿Sigue disponible?`);
+    card.innerHTML = `
+      <div class="shoe">${shoeSvg}</div>
+      <h3>${p.name}</h3>
+      <div class="price">${p.price}</div>
+      <div class="meta">${p.meta}</div>
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/${WHATSAPP_NUMBER}?text=${msg}">Consultar por WhatsApp</a>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Registro del service worker para que funcione como PWA instalable
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    });
+  }
+</script>
+
+</body>
+</html>
