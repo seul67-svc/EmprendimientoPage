@@ -5,8 +5,8 @@ const ASSETS = [
   "./manifest.json",
   "./logo.png",
   "./logo-mini.png",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 // Instala el service worker y guarda los archivos base en caché
