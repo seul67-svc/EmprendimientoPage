@@ -1,4 +1,4 @@
-const CACHE_NAME = "doble-aguila-v1";
+const CACHE_NAME = "doble-aguila-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -31,20 +31,16 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Estrategia: responde desde caché primero, y si no está, va a la red
+// Estrategia: intenta la red primero (para no quedarse con versiones viejas
+// de las imágenes/páginas); si no hay conexión, usa lo que haya en caché.
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return (
-        cached ||
-        fetch(event.request)
-          .then((response) => {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-            return response;
-          })
-          .catch(() => cached)
-      );
-    })
+    fetch(event.request)
+      .then((response) => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+        return response;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
