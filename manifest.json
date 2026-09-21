@@ -1,7 +1,7 @@
 {
-  "name": "Doble Águila",
-  "short_name": "Doble Águila",
-  "description": "Tienda de tenis Doble Águila",
+  "name": "BROTHERsSHOP",
+  "short_name": "BROTHERsSHOP",
+  "description": "Tienda de tenis BROTHERsSHOP",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

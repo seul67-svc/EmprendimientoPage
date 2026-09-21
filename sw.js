@@ -1,4 +1,4 @@
-const CACHE_NAME = "doble-aguila-v3";
+const CACHE_NAME = "brothershop-v1";
 const ASSETS = [
   "./",
   "./index.html",
