@@ -105,17 +105,18 @@
   .section-head h2{font-family:'Alma Toran', 'Oswald', sans-serif; font-size:1.7rem; letter-spacing:0.02em;}
   .section-head p{color:var(--muted); font-size:0.9rem; margin:0;}
 
-  .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px;}
   .card{
     background:var(--card); border:1px solid var(--line); border-radius:14px;
     padding:20px; display:flex; flex-direction:column; gap:14px;
   }
   .card .shoe{
-    background:var(--bg-soft); border-radius:10px; padding:22px;
+    background:#ffffff; border-radius:10px; padding:14px;
     display:flex; align-items:center; justify-content:center;
-    aspect-ratio:4/3;
+    aspect-ratio:4/3; overflow:hidden;
   }
   .card .shoe svg{width:78%; height:auto;}
+  .card .shoe img{width:100%; height:100%; object-fit:contain;}
   .card h3{font-family:'Alma Toran', 'Oswald', sans-serif; font-size:1.2rem; letter-spacing:0.02em;}
   .card .price{color:var(--accent); font-family:'Alma Toran', 'Oswald', sans-serif; font-size:1.35rem; letter-spacing:0.02em;}
   .card .meta{color:var(--muted); font-size:0.85rem;}
@@ -143,8 +144,7 @@
   @media (max-width:760px){
     .hero{grid-template-columns:1fr; padding:40px 0;}
     .hero-art{order:-1;}
-    .grid{grid-template-columns:repeat(2,1fr);}
-    nav ul{display:none;}
+        nav ul{display:none;}
   }
 </style>
 </head>
@@ -191,15 +191,9 @@
   <section id="catalogo">
     <div class="section-head">
       <h2>Catálogo</h2>
-      <p>4 modelos de ejemplo</p>
+      <p>4 modelos disponibles</p>
     </div>
     <div class="grid" id="product-grid"></div>
-  </section>
-
-  <section>
-    <div class="note">
-      <strong>Nota:</strong> los productos, fotos y precios de arriba son de ejemplo, para mostrar cómo luciría la tienda. Cuando tengan nombre de marca y fotos reales de los tenis, se reemplaza todo esto — la estructura (index.html, manifest.json, sw.js) ya queda lista para GitHub Pages.
-    </div>
   </section>
 
   <section id="contacto">
@@ -227,23 +221,15 @@
     e.preventDefault();
   });
 
-  // ---- Datos de ejemplo: reemplazar con los tenis reales ----
+  // ---- Catálogo ----
   const WHATSAPP_NUMBER = "526634857508"; // número real de contacto
 
   const products = [
-    { name: "Modelo Runner", price: "$1,200", meta: "Talla 24–29" },
-    { name: "Modelo Street", price: "$980", meta: "Talla 23–28" },
-    { name: "Modelo Classic", price: "$1,050", meta: "Talla 24–29" },
-    { name: "Modelo Trail", price: "$1,350", meta: "Talla 25–30" },
+    { name: "Nike Air Force 1 '07 Blanco", price: "$800", meta: "Talla 24–29", image: "af1-white.jpg" },
+    { name: "Nike Air Max 270 Negro", price: "$800", meta: "Talla 24–29", image: "am270-black.jpg" },
+    { name: "Balenciaga Speed Trainer Negro", price: "$850", meta: "Talla 24–29", image: "balenciaga-speed.jpg" },
+    { name: "Alexander McQueen Oversized Negro", price: "$850", meta: "Talla 24–29", image: "mcqueen-oversized.jpg" },
   ];
-
-  const shoeSvg = `
-    <svg viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 52c0-6 4-9 10-11l20-7c4-9 12-15 22-15 5 0 8 3 9 7l3 10 20 4c8 2 24 6 24 15 0 5-4 7-9 7H14c-5 0-8-4-8-10z"
-        stroke="#4a9d6f" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M36 34c4 4 10 6 16 6h30" stroke="#4a9d6f" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  `;
 
   const grid = document.getElementById("product-grid");
   products.forEach((p) => {
@@ -251,7 +237,7 @@
     card.className = "card";
     const msg = encodeURIComponent(`Hola, me interesa el ${p.name} (${p.price}). ¿Sigue disponible?`);
     card.innerHTML = `
-      <div class="shoe">${shoeSvg}</div>
+      <div class="shoe"><img src="${p.image}" alt="${p.name}" loading="lazy" /></div>
       <h3>${p.name}</h3>
       <div class="price">${p.price}</div>
       <div class="meta">${p.meta}</div>

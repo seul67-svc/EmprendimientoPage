@@ -1,4 +1,4 @@
-const CACHE_NAME = "brothershop-v1";
+const CACHE_NAME = "brothershop-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -6,7 +6,11 @@ const ASSETS = [
   "./icon-192.png",
   "./icon-512.png",
   "./logo-transparent.png",
-  "./alma-toran.ttf"
+  "./alma-toran.ttf",
+  "./af1-white.jpg",
+  "./am270-black.jpg",
+  "./balenciaga-speed.jpg",
+  "./mcqueen-oversized.jpg"
 ];
 
 // Instala el service worker y guarda los archivos base en caché
